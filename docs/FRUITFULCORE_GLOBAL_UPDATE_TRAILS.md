@@ -1,175 +1,277 @@
 # FruitfulCore Global Update Trails and Governance Threads
 
-**Document status:** Project conclusion and current-state record  
+**Document status:** Draft for project conclusion and current-state review  
+**Prepared for:** Fruitful-Global-Planet/Update  
+**Proposed pull request title:** `docs: consolidate FruitfulCore global update trails and governance threads`  
 **Scope:** FruitfulCore, Fruitful Portals, Heyns1000 QS Command Center, Fruitful Around Town, GitHub, Supabase, FruitfulApp/Base44, and workspace context  
 **Operating doctrine:** Evidence first · append only · explicit authority · approval before projection  
-**Classification:** Internal governance documentation
+**Classification:** Internal governance documentation — no credentials, customer data, live configuration, or production secrets
 
 ---
 
-## Project conclusion
+## 1. Project conclusion
 
-FruitfulCore is the proposed evidence-led control plane for linking Fruitful Portals, the Heyns1000 QS Command Center, Fruitful Around Town, FruitfulApp/Base44, versioned GitHub artefacts, and future durable ledger records.
+FruitfulCore is the proposed evidence-led control plane for the Fruitful ecosystem. Its purpose is to connect operational evidence, versioned specifications, quantity-surveying controls, commerce records, governance decisions, and downstream projections without treating any one interface, chat session, repository, or application as automatically authoritative for all purposes.
 
-It is **not yet evidenced as one deployed canonical system of record**. The estate remains distributed across workspace sessions, GitHub source history, Supabase, FruitfulApp/Base44, and related operational surfaces. Co-location, naming similarity, or sidebar visibility must not be treated as a machine-readable relationship, durable audit record, approved release, or production integration.
+The architecture is deliberately evidence-first:
 
-FruitfulCore therefore remains an architecture and governance standard until the required durable ledger, typed lineage, integrity, approval, and release evidence are implemented and verified.
+- Original sources remain identifiable.
+- New information is appended rather than silently overwriting prior records.
+- Calculations, AI enrichments, reconciliations, and recommendations remain distinguishable from source evidence.
+- Approval is a separate, named event.
+- A dashboard, report, API response, or channel update is treated as a controlled projection, not as primary truth.
+
+FruitfulCore is not yet demonstrated as a single deployed canonical system of record. The current estate remains distributed across workspace/session context, GitHub, Supabase, FruitfulApp/Base44, the Heyns1000 QS Command Center, Fruitful Portals, Fruitful Around Town, and related operational surfaces.
 
 ---
 
-## Waterfall Memory Flow
+## 2. Unified position
 
-The governing lifecycle is:
+FruitfulCore should operate as a common provenance, governance, and release layer across the ecosystem.
+
+```text
+Sources and working systems
+        │
+        ▼
+FruitfulCore evidence, lineage, approval and release controls
+        │
+        ▼
+Approved read-only or operational projections
+```
+
+The system must preserve the difference between:
+
+1. A source or event.
+2. A captured instruction or workflow trigger.
+3. A preserved record.
+4. A derived extension, calculation, interpretation, or reconciliation.
+5. An authorised projection released for a defined purpose.
+
+No source system should be assumed to be a full substitute for the others. GitHub provides versioned source and review history. Supabase can provide durable structured records. A QS workstream provides professional measurement and cost-control context. User interfaces provide controlled presentation. Workspace sessions provide captured working context. Each role has distinct evidential limits.
+
+---
+
+## 3. Waterfall evidence model
+
+FruitfulCore adopts the append-only Waterfall Memory Flow:
 
 ```text
 🦍 Origin
-→ 💧 Captured prompt
-→ 🌱 Preserved record
-→ 🌿 Linked extension
-→ 🌳 Approved projection
+    ↓
+💧 Captured prompt
+    ↓
+🌱 Preserved record
+    ↓
+🌿 Linked extension
+    ↓
+🌳 Approved projection
 ```
 
-| Stage | Meaning | Minimum required evidence |
-|---|---|---|
-| 🦍 Origin | The original person, source system, document, photo, API response, commit, contract record, or site event | Source identity, source type, timestamp, source reference |
-| 💧 Captured prompt | The instruction, workflow trigger, intake request, or event that initiated work | Exact captured context, actor, channel, capture time |
-| 🌱 Preserved record | A retained and versioned source payload or structured record | Record ID, retention status, source link, content hash where available |
-| 🌿 Linked extension | Analysis, extraction, reconciliation, classification, calculation, enrichment, or interpretation | Parent references, method/version, evidence links, confidence state |
-| 🌳 Approved projection | A controlled report, dashboard, API result, certificate draft, recommendation, or published view | Authoriser, authority, policy version, scope, approval time, release receipt |
+### 3.1 Stage definitions
 
-A downstream record does not replace its ancestor. Corrections, revocations, and supersessions must remain append-only and link back to the earlier record.
+| Stage | Meaning | Minimum control |
+|---|---|---|
+| 🦍 Origin | An identifiable source, event, person, system, document, commit, or site artefact | Source reference, type, actor/system, timestamp, evidence location |
+| 💧 Captured prompt | The exact initiating instruction, request, event trigger, or workflow context | Prompt/event content, actor, channel, capture time |
+| 🌱 Preserved record | A retained and versioned source/event payload | Record ID, version or object ID, hash where available, retention status |
+| 🌿 Linked extension | An extraction, reconciliation, calculation, classification, interpretation, or correction | Parent links, method/version, evidence references, confidence state |
+| 🌳 Approved projection | A controlled output made usable outside the ledger | Authority, approver, policy version, scope, approval time, release receipt |
+
+### 3.2 Append-only rule
+
+No new event overwrites an earlier event. A correction, conflict, revocation, or supersession is itself a new linked record.
+
+```text
+Original evidence
+    ├── supports → extension
+    ├── contradicts → exception record
+    └── superseded_by → corrected record
+                            └── projected_from → approved output
+```
 
 ---
 
-## Authority boundaries
+## 4. Authority boundaries
 
 | Surface | Evidenced role | Must not be assumed |
 |---|---|---|
-| Supabase / Fruitful Ledger | Intended durable location for governed records, approvals, audit events, and projections | That the current schema already contains the Waterfall Memory Ledger |
-| GitHub | Versioned source, review context, documentation, commits, pull requests, and release evidence | Production state, deployed configuration, credentials, or live operational data |
-| Heyns1000 QS Command Center | QS evidence, BoQ/5D-BIM, procurement, site reconciliation, professional review gates | AI authority to issue certificates, valuations, or binding commercial instructions |
-| Fruitful Portals | Presentation and workflow surfaces for approved information | A canonical evidence ledger or financial/governance authority |
-| Fruitful Around Town | Candidate channel for local discovery and commerce projections | Inventory truth, identity, consent, finance, pricing, or governance authority |
-| FruitfulApp/Base44 | Operational entity/API surface | A verified system of record until authenticated endpoint and entity behaviour is evidenced |
-| Session/workspace context | Captured working context, research continuity, and discoverability | A durable external ledger, hash graph, approval record, or release receipt |
+| Supabase / Fruitful ledger | Intended durable operational records, approvals, audit and governed projections | That its current schema already contains the Waterfall Memory Ledger or a verified cross-system graph |
+| GitHub | Versioned source, change, review and release evidence | Production state, deployed configuration, credentials, live data, or financial truth |
+| Heyns1000 QS Command Center | QS evidence, BoQ/5D-BIM, procurement, site reconciliation and professional gates | That AI may issue certificates, instructions, or binding commercial actions without authorised professional approval |
+| Fruitful Portals | Controlled presentation and integration candidates | Source authority, approval authority, or an automatically reconciled ledger |
+| Fruitful Around Town | Candidate local-discovery and commerce projection channel | Inventory, identity, consent, finance, or governance authority |
+| FruitfulApp/Base44 | Operational entity and workflow API candidate | Verified canonical ledger status until authenticated endpoint and retention controls are evidenced |
+| Workspace/session context | Captured working context and research continuity | Durable external ledger, cryptographic hash graph, formal project mapping, or authorised release record |
 
 ---
 
-## First demonstrated trace
+## 5. First demonstrated trace
 
-The first end-to-end trace should use a deliberately harmless, non-secret GitHub specification file at an immutable full commit SHA.
+The first proof should use a harmless, non-secret GitHub specification file pinned to a full immutable commit SHA.
+
+### 5.1 Selected source class
+
+| Candidate source | Priority | Reason |
+|---|---:|---|
+| GitHub specification file | First | Stable repository identity, immutable commit SHA, reproducible retrieval, low sensitivity, no external business action |
+| QS evidence record | Second | Requires contract context, measurement evidence, named QS authority, and explicit professional approval |
+| Fruitful product/inventory record | Third | Requires ownership, identity, consent, pricing, stock, tax, finance, and channel-projection controls |
+
+### 5.2 Trace path
 
 ```text
 GitHub file at immutable commit SHA
-→ preserved evidence event
-→ typed lineage edge
-→ human approval event
-→ read-only projection
-→ immutable release receipt
+    ↓
+Evidence event
+    ↓
+Lineage edge
+    ↓
+Human approval event
+    ↓
+Read-only dashboard or API projection
+    ↓
+Immutable release receipt
 ```
 
-This is the lowest-risk test because it proves source identity, repeatability, integrity, lineage, review context, approval separation, and release receipting without touching financial, customer, payment, QS certification, inventory, DNS, Workers, Cloudflare configuration, or production data.
+### 5.3 Minimum evidence metadata
 
-### Candidate order
+The initial GitHub evidence event must capture:
 
-| Source type | Sequence | Reason |
-|---|---:|---|
-| GitHub specification file | First | Immutable commit SHA, reproducible retrieval, low sensitivity, no business action |
-| QS evidence record | Second | Requires contract context, source validation, reconciliation, and authorised professional approval |
-| Fruitful product/inventory record | Third | Requires ownership, consent, pricing, tax, stock, identity, and commerce-projection controls |
+- Repository URL and repository identity.
+- Branch used for capture.
+- Full Git commit SHA.
+- File path.
+- Git blob SHA where available.
+- SHA-256 computed from the exact retrieved file bytes.
+- Capture time.
+- Original author/committer metadata where available.
+- Classification and sensitivity.
+- Record owner and responsible reviewer.
 
-### Required source metadata
-
-The first trace must contain:
-
-- Repository URL
-- Branch
-- Full Git commit SHA
-- File path
-- Git blob SHA where available
-- Independently calculated SHA-256 of exact retrieved file content
-- Source actor and capture timestamp
-- Classification and sensitivity label
-- Record owner
-- Separate reviewer or approver
-- Typed lineage relationship
-- Approval record before external projection
-- Release receipt identifying the controlled destination
+The GitHub SHA and a SHA-256 content hash serve different purposes. The Git commit/blob identifiers establish Git provenance; the SHA-256 should be independently calculated from the exact preserved content.
 
 ---
 
-## Governance gates
+## 6. Initial governance gates
 
-| Gate | Requirement |
+### Evidence gate
+
+Before preservation, the record must include source reference, actor or system, timestamp, content hash where applicable, classification, and sufficient context to reproduce the retrieval.
+
+### Authority gate
+
+Each record and intended action must identify a responsible owner and defined scope. Source capture does not itself confer approval authority.
+
+### Approval gate
+
+Finance, QS certification, deployments, publishing, external communications, and state-changing integrations require explicit human authorisation from the appropriate authority.
+
+### Projection gate
+
+No downstream display, report, portal update, API release, or operational instruction should be marked approved without a traceable path from source through preservation, extension, approval, and release receipt.
+
+### Security gate
+
+Raw credentials, bearer tokens, API keys, passwords, private keys, client secrets, `.env` content, customer data, payment data, and raw infrastructure configuration are excluded from evidence payloads. Any suspected exposure triggers immediate rotation, containment, and a safe incident record.
+
+### Integrity gate
+
+Hashes, immutable versions, or equivalent preservation receipts are recorded.
+
+### Supersession gate
+
+Corrections and revocations create append-only follow-on records rather than overwriting prior evidence.
+
+---
+
+## 7. Canonical ledger target
+
+The proposed durable FruitfulCore ledger should provide four independently auditable record classes:
+
+| Record class | Purpose |
 |---|---|
-| Evidence gate | Source reference, content hash, actor, timestamp, classification, and record owner are present |
-| Authority gate | The action owner and permitted scope are explicitly assigned |
-| Approval gate | Finance, QS certification, deployment, publishing, external writes, and binding actions require human authorisation |
-| Projection gate | No dashboard, portal, API, report, or channel update is shown without a source-to-release receipt |
-| Security gate | Raw secrets remain server-side; credentials, `.env` material, access tokens, customer data, payment data, and raw infrastructure values are excluded |
-| Integrity gate | Hashes, immutable versions, or equivalent preservation receipts are recorded |
-| Supersession gate | Corrections and revocations create append-only follow-on records rather than overwriting prior evidence |
+| `memory_events` | Append-only origin, prompt, preserved-record, extension, and projection events |
+| `memory_edges` | Typed parent and cross-record relationships |
+| `memory_approvals` | Independent approval, rejection, revocation, and supersession records |
+| `memory_release_receipts` | Evidence that an approved projection was released or consumed by a named destination |
+
+Required relationship types should include:
+
+```text
+captured_from
+preserved_as
+extends
+supports
+contradicts
+reconciles_with
+supersedes
+approved_from
+projected_from
+mapped_to_project
+released_to
+```
+
+The ledger must be append-only in behaviour, protected by row-level security, denied public write access by default, and designed to retain correction and revocation evidence rather than erase history.
 
 ---
 
-## Canonical ledger model
+## 8. Security posture
 
-The intended Waterfall Memory Ledger contains four core record families:
+This document does not contain secret values and must not be used to store them.
 
-| Record family | Purpose |
-|---|---|
-| `memory_events` | Stores origin, prompt, preserved record, linked extension, and projection events |
-| `memory_edges` | Stores explicit relationships such as `captured_from`, `preserved_as`, `extends`, `supports`, `contradicts`, `supersedes`, and `projected_from` |
-| `memory_approvals` | Stores approval, rejection, revocation, and supersession decisions separately from source content |
-| `memory_release_receipts` | Stores evidence that an approved projection was released or consumed by a specific destination |
+### Required rule
 
-The ledger must be append-only, protected by Row Level Security, and have no public write path. Raw secret values must never be stored in any evidence payload, metadata field, prompt, title, commit, release receipt, or projection.
+> Raw credentials are never evidence payloads. Preserve only a provider name, credential label, safe fingerprint or provider identifier, vault reference, scope, expiry, rotation status, and incident/remediation receipt.
+
+If a credential appears in a repository, prompt, session title, chat, issue, log, screenshot, client-side application bundle, or documentation, treat it as compromised. Revoke/rotate it, update protected server-side bindings, search for other copies, and retain only remediation metadata.
+
+Redaction reduces further spread but does not restore trust in an exposed value.
+
+The initial GitHub trace must not interact with DNS, Workers, Pages, Cloudflare configuration, production databases, financial records, payment records, QS records, inventory records, or raw operational logs.
 
 ---
 
-## Current state
+## 9. Current state
 
 ### Confirmed
 
-- FruitfulCore is defined as an evidence-led control-plane architecture.
-- The Waterfall Memory Flow is the working governance model.
-- GitHub is suitable as the first low-risk, read-only demonstration source.
-- GitHub, Supabase, FruitfulApp/Base44, workspace sessions, and presentation channels have distinct roles and must not be conflated.
+- The target GitHub repository is `Fruitful-Global-Planet/Update`.
+- Its baseline source is the `main` branch at an immutable commit SHA.
+- GitHub can provide a low-risk first source for a read-only lineage demonstration.
+- FruitfulCore has an agreed conceptual Waterfall Memory Flow and governance boundary.
+- The broader ecosystem includes QS, portal, local-discovery, commerce, API, repository, and database workstreams that need explicit rather than inferred linkage.
 - The Heyns1000 QS Command Center requires authorised professional approval for QS certification and binding commercial actions.
 - Workspace sessions are useful captured context but are not automatically a durable external ledger.
 
 ### Not yet demonstrated
 
-- A deployed canonical Waterfall Memory Ledger.
-- Structured, machine-readable lineage edges across source systems.
+- A deployed, canonical Waterfall Memory Ledger.
+- Formal cross-system lineage edges or hash chaining.
+- A verified session-to-project or project-to-record mapping.
+- A fully defined approval authority matrix.
+- An approved external operational projection and immutable release receipt.
+- A complete secure integration inventory across all operational surfaces.
 - Cryptographic content integrity for all retained records.
-- Formal session-to-project mapping.
-- Recorded approval authority and policy controls across all projection classes.
-- Immutable release receipts for operational dashboards, portals, APIs, reports, or other outputs.
 - Verified cross-system synchronisation between GitHub, Supabase, FruitfulApp/Base44, Cloudflare, and workspace context.
 
 ---
 
-## Security standard
+## 10. Open tails
 
-Raw credentials are never governance evidence.
-
-Store only safe metadata:
-
-- Provider name
-- Credential label
-- Provider key ID or approved safe fingerprint
-- Scope
-- Expiry
-- Rotation status
-- Vault reference
-- Revocation and deployment-update receipts
-
-Any credential found in a title, prompt, repository, issue, log, document, screenshot, browser bundle, or chat record must be treated as exposed and rotated. Redaction reduces further spread but does not restore trust in an exposed value.
+| Priority | Tail | Exact evidence needed |
+|---|---|---|
+| Critical | Durable ledger implementation | Approved migration receipt, schema verification, RLS posture, and controlled write evidence |
+| Critical | Credential-exposure containment | Provider revocation receipt, replacement secret reference, deployment rebinding receipt, and audit-log review |
+| High | Canonical lineage | Event IDs, typed edges, timestamps, hashes, parent references, and cross-system mappings |
+| High | Approval model | Named authority matrix, policy versions, approval scope, revocation path, and audit requirements |
+| High | Release control | Destination, projection ID, approval reference, release timestamp, result, and immutable receipt |
+| Medium | QS integration | Contract, BoQ, valuation, procurement, and professional-approval mappings under the Honourable QS standard |
+| Medium | Commerce and portal integration | Ownership, consent, pricing, tax, inventory, and customer-data controls before customer-facing projections |
+| Medium | Repository controls | Secret scanning, documentation review, CI validation, contribution rules, and protected-branch policy |
 
 ---
 
-## Find-the-Tail register
+## 11. Find-the-Tail register
 
 | Priority | Open item | Evidence required |
 |---|---|---|
@@ -185,9 +287,23 @@ Any credential found in a title, prompt, repository, issue, log, document, scree
 
 ---
 
-## Definition of done
+## 12. Definition of done
+
+FruitfulCore should be considered minimally operational only once it can demonstrate one complete, non-sensitive source-to-projection chain:
+
+1. A source is preserved with verifiable identity and hash.
+2. The record has an explicit parent or source relationship.
+3. A linked extension is recorded without overwriting source evidence.
+4. A properly authorised person approves a defined projection scope.
+5. A read-only projection is generated.
+6. A release receipt ties the projection back to its source, approval, version, destination, and time.
+7. Corrections, conflicts, revocations, and supersessions remain visible.
+
+Until then, FruitfulCore remains a governed architecture and implementation programme—not a completed or automatically unified system of record.
 
 FruitfulCore must not be called operational solely because a dashboard exists, a repository exists, a session is saved, or a database project is active.
+
+### 12.1 Minimum operational readiness
 
 Minimum operational readiness requires:
 
@@ -203,7 +319,15 @@ Minimum operational readiness requires:
 
 ---
 
-## Closing position
+## 13. Next controlled move
+
+The shortest safe move is to establish the canonical append-only ledger in the approved durable environment with row-level security and no public write path, then demonstrate one read-only GitHub specification trace end to end.
+
+That first trace must prove mechanics only. It must not be used to claim deployment, financial authority, QS certification, inventory truth, customer consent, external synchronisation, or control of live infrastructure.
+
+---
+
+## 14. Closing position
 
 FruitfulCore is a governed integration architecture in active construction, not yet a proven single deployed system of record.
 
